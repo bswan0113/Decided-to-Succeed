@@ -3,30 +3,33 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+namespace Feature.Player
 {
-    [SerializeField] private float moveSpeed = 3f;
-    private Vector2 _moveInput;
-    [SerializeField] private bool _canControl = true;
-
-    void Update()
+    public class PlayerController : MonoBehaviour
     {
-        if (!_canControl) return;
-        transform.position += new Vector3(_moveInput.x, _moveInput.y, 0) * moveSpeed * Time.deltaTime;
-    }
+        [SerializeField] private float moveSpeed = 3f;
+        private Vector2 _moveInput;
+        [SerializeField] private bool _canControl = true;
 
-    public void OnMove(InputValue value)
-    {
-        _moveInput = value.Get<Vector2>();
-    }
-
-    public void SetControllable(bool isControllable)
-    {
-        _canControl = isControllable;
-        if (!isControllable)
+        void Update()
         {
-            _moveInput = Vector2.zero;
+            if (!_canControl) return;
+            transform.position += new Vector3(_moveInput.x, _moveInput.y, 0) * moveSpeed * Time.deltaTime;
         }
-    }
 
+        public void OnMove(InputValue value)
+        {
+            _moveInput = value.Get<Vector2>();
+        }
+
+        public void SetControllable(bool isControllable)
+        {
+            _canControl = isControllable;
+            if (!isControllable)
+            {
+                _moveInput = Vector2.zero;
+            }
+        }
+
+    }
 }

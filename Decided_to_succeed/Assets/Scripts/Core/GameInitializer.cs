@@ -6,7 +6,11 @@ using Core.Dependency;
 using Core.Logging;
 using Core.Resource;
 using Cysharp.Threading.Tasks;
+using Feature.Cutscene;
+using Feature.Dialogue;
+using Unity.VisualScripting;
 using UnityEngine;
+using Object = System.Object;
 
 namespace Core
 {
@@ -28,6 +32,18 @@ namespace Core
 
                 var resourceManager = new ResourceManager();
                 ServiceLocator.Register(resourceManager);
+
+                var cutsceneManager = GameObject.FindObjectOfType<CutsceneManager>();
+                if (cutsceneManager != null)
+                {
+                    ServiceLocator.Register(cutsceneManager);
+                }
+
+                var dialogueManager = GameObject.FindObjectOfType<DialogueManager>();
+                if (dialogueManager != null)
+                {
+                    ServiceLocator.Register(dialogueManager);
+                }
                 CLogger.Log("[GameInitializer] Game initialization sequence completed successfully. All systems nominal.");
             }
             catch (OperationCanceledException)

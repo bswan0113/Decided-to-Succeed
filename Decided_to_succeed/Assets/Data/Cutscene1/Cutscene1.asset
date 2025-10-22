@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0b0e1623a947b484f471f9cea856d7, type: 3}
+  m_Name: Cutscene1
+  m_EditorClassIdentifier: 
+  actions:
+  - rid: 8211121458670993414
+  - rid: 8211121461579743232
+  - rid: 8211121461579743234
+  references:
+    version: 2
+    RefIds:
+    - rid: 8211121458670993414
+      type: {class: MoveAction, ns: ScriptableObjects.Action, asm: Assembly-CSharp}
+      data:
+        _waypointData: {fileID: 11400000, guid: a708f48459d9c32468e9267fd2e1d051, type: 2}
+        _duration: 4
+        _offset: {x: 0, y: 0, z: 0}
+    - rid: 8211121461579743232
+      type: {class: ShowDialogueAction, ns: ScriptableObjects.Action, asm: Assembly-CSharp}
+      data:
+        _dialogueText: "\uAC00\uC2DC\uC8E0 \uC804\uD558. \uC81C\uAC00 \uBAA8\uC2DC\uACA0\uC2B5\uB2C8\uB2E4."
+        _dialogueDuration: 2
+        _bubbleOffset: {x: 1, y: 2, z: 0}
+    - rid: 8211121461579743234
+      type: {class: ToggleFollowAction, ns: , asm: Assembly-CSharp}
+      data:
+        _isFollowing: 1

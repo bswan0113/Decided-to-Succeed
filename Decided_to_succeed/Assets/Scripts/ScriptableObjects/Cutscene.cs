@@ -7,7 +7,7 @@ namespace ScriptableObjects
     [CreateAssetMenu(fileName = "New Cutscene", menuName = "ScriptableObject/Cutscene")]
     public class Cutscene : ScriptableObject
     {
-        [SerializeField]
+        [SerializeReference]
         public List<IAction> actions;
     }
 }

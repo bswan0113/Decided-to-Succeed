@@ -1,4 +1,4 @@
-// Editor/ActionSequenceEditor.cs
+// Editor/actionsequenceEditor.cs
 
 using System;
 using System.Linq;
@@ -16,9 +16,9 @@ namespace Editor.SoEditor
         {
             serializedObject.Update();
 
-            var actionsProp = serializedObject.FindProperty("Actions");
+            var actionsProp = serializedObject.FindProperty("actions");
 
-            EditorGUILayout.LabelField("Actions", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("actions", EditorStyles.boldLabel);
 
             for (int i = 0; i < actionsProp.arraySize; i++)
             {

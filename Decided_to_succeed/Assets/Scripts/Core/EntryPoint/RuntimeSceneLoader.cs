@@ -1,4 +1,5 @@
 using System.Threading;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,13 +9,13 @@ namespace Core.EntryPoint
     public class RuntimeSceneLoader : MonoBehaviour
     {
         [SerializeField] private string defaultNextSceneName;
-        private CancellationTokenSource _cancellation;
+        private CancellationTokenSource _cancellationTokenSource;
 
-        async void Start(){
+        async UniTaskVoid Start(){
 
-            _cancellation = new CancellationTokenSource();
+            _cancellationTokenSource = new CancellationTokenSource();
             var gameInitializer = new GameInitializer();
-            await gameInitializer.StartAsync(_cancellation.Token);
+            await gameInitializer.StartAsync(_cancellationTokenSource.Token);
             LoadNextScene();
         }
 
@@ -34,8 +35,8 @@ namespace Core.EntryPoint
         
         private void OnDestroy()
         {
-            _cancellation?.Cancel();
-            _cancellation?.Dispose();
+            _cancellationTokenSource?.Cancel();
+            _cancellationTokenSource?.Dispose();
         }
     }
 }

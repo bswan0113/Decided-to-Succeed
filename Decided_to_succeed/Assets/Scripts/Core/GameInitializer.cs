@@ -2,11 +2,13 @@
 
 using System;
 using System.Threading;
+using Core.Dependency;
 using Core.Logging;
+using Core.Resource;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace Core.EntryPoint
+namespace Core
 {
     public class GameInitializer
     {
@@ -21,6 +23,11 @@ namespace Core.EntryPoint
 
             try
             {
+                var gameManager = new GameManager();
+                ServiceLocator.Register(gameManager);
+
+                var resourceManager = new ResourceManager();
+                ServiceLocator.Register(resourceManager);
                 CLogger.Log("[GameInitializer] Game initialization sequence completed successfully. All systems nominal.");
             }
             catch (OperationCanceledException)

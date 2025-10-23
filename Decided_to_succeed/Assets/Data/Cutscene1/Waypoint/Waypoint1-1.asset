@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Waypoint1-1
   m_EditorClassIdentifier: 
   _id: 1-1
-  _position: {x: -0.5, y: 0, z: 0}
+  _position: {x: -0.5, y: 1, z: 0}

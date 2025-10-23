@@ -1,3 +1,4 @@
+using Feature.Camera;
 using Feature.Dialogue;
 using Feature.NPC;
 using Feature.Player;
@@ -9,13 +10,16 @@ namespace Feature.Context
         private DialogueManager _dialogueManager;
         private PlayerController _playerController;
         private Lothric _lothric;
+        private CameraManager _cameraManager;
 
         public DialogueManager DialogueManager => _dialogueManager;
         public PlayerController PlayerController => _playerController;
         public Lothric Lothric => _lothric;
+        public CameraManager CameraManager => _cameraManager;
 
-        public ActionContext(PlayerController playerController, DialogueManager dialogueManager,  Lothric lothric = null)
+        public ActionContext(PlayerController playerController, DialogueManager dialogueManager, CameraManager cameraManager, Lothric lothric = null)
         {
+            _cameraManager = cameraManager;
             _playerController = playerController;
             _dialogueManager = dialogueManager;
             _lothric = lothric;

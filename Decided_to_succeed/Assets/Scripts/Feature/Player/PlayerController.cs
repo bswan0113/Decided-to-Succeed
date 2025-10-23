@@ -10,12 +10,22 @@ namespace Feature.Player
         [SerializeField] private float moveSpeed = 3f;
         private Vector2 _moveInput;
         [SerializeField] private bool _canControl = true;
+        private Rigidbody2D rb;
 
-        void Update()
+        void Awake()
         {
-            if (!_canControl) return;
-            transform.position += new Vector3(_moveInput.x, _moveInput.y, 0) * moveSpeed * Time.deltaTime;
+            rb = GetComponent<Rigidbody2D>();
         }
+        void FixedUpdate()
+        {
+            if (!_canControl)
+            {
+                rb.velocity = Vector2.zero;
+                return;
+            }
+            rb.velocity = _moveInput * moveSpeed;
+        }
+
 
         public void OnMove(InputValue value)
         {
@@ -28,6 +38,7 @@ namespace Feature.Player
             if (!isControllable)
             {
                 _moveInput = Vector2.zero;
+                rb.velocity = Vector2.zero;
             }
         }
 

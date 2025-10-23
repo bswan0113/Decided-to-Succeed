@@ -12,8 +12,6 @@ public class ToggleFollowAction : IAction
 
     public async UniTask ExecuteAsync(ActionContext context, CancellationToken token)
     {
-        Debug.Log("ToggleFollowAction");
-        Debug.Log("IsFollowing: " + _isFollowing);
         if (context.Lothric != null) context.Lothric.SetFollowing(_isFollowing);
         await UniTask.Yield(token);
     }

@@ -12,7 +12,12 @@ namespace Feature.NPC
         private Vector3 _lastTargetPosition;
         private Vector3 _playerMoveDirection;
         private bool _isInitialized = false;
+        private Rigidbody2D rb;
 
+        void Awake()
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
         void Start()
         {
             if (_target != null)
@@ -26,23 +31,18 @@ namespace Feature.NPC
         {
             if (!_isFollowing || _target == null) return;
 
-            // 플레이어 이동 방향 감지
             if (_isInitialized)
             {
                 Vector3 movement = _target.position - _lastTargetPosition;
-                if (movement.magnitude > 0.01f) // 충분히 움직였을 때만 방향 업데이트
+                if (movement.magnitude > 0.01f)
                 {
                     _playerMoveDirection = movement.normalized;
                 }
                 _lastTargetPosition = _target.position;
             }
-
-            // 플레이어 이동 방향의 반대쪽에 위치하도록 계산
             Vector3 desiredPosition = _target.position - _playerMoveDirection * _followDistance;
-            Debug.DrawLine(_target.position, _target.position + _playerMoveDirection, Color.red, 0.1f);
-
-            // 부드럽게 이동
-            transform.position = Vector3.MoveTowards(transform.position, desiredPosition, _moveSpeed * Time.deltaTime);
+            Vector3 newPosition = Vector3.MoveTowards(rb.position, desiredPosition, _moveSpeed * Time.fixedDeltaTime);
+            rb.MovePosition(newPosition);
         }
 
         public void SetFollowing(bool follow)

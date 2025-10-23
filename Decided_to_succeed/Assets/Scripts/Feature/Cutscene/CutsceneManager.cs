@@ -5,6 +5,7 @@ using System.Threading;
 using Core.Dependency;
 using Core.Logging;
 using Cysharp.Threading.Tasks;
+using Feature.Camera;
 using Feature.Common;
 using Feature.Context;
 using Feature.Dialogue;
@@ -21,6 +22,7 @@ namespace Feature.Cutscene
         private bool _isPlaying;
         public bool IsPlaying => _isPlaying;
         private DialogueManager _dialogueManager;
+        CameraManager _cameraManager;
 
         void Start()
         {
@@ -52,6 +54,7 @@ namespace Feature.Cutscene
 
         public async UniTask PlayCutscene(ScriptableObjects.Cutscene cutscene, PlayerController playerController, Lothric lothric = null)
         {
+
             if (_isPlaying)
             {
                 CLogger.LogWarning("[CutsceneManager] Cutscene is already playing!");
@@ -65,8 +68,8 @@ namespace Feature.Cutscene
             }
 
             _isPlaying = true;
-
-            var context = new ActionContext(playerController, _dialogueManager, lothric);
+            _cameraManager = ServiceLocator.GetSceneInstance<CameraManager>();
+            var context = new ActionContext(playerController, _dialogueManager, _cameraManager, lothric);
 
             try
             {

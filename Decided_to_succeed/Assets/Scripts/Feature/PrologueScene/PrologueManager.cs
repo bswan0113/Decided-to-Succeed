@@ -15,14 +15,14 @@ namespace Feature.PrologueScene
         [SerializeReference] private Lothric _lothric;
         private CutsceneManager _cutsceneManager;
 
-        public PrologueManager()
-        {
-            _cutsceneManager = ServiceLocator.Get<CutsceneManager>();
-        }
-
         async void Start()
         {
-            await _cutsceneManager.PlayCutscene(_introCutscene, _playerController, _lothric);
+            _cutsceneManager = ServiceLocator.Get<CutsceneManager>();
+            if (_cutsceneManager != null)
+            {
+                await _cutsceneManager.PlayCutscene(_introCutscene, _playerController, _lothric);
+            }
+
         }
     }
 }

@@ -1,12 +1,10 @@
-// Assets/Scripts/Feature/Camera/CameraManager.cs
-
 using System.Collections.Generic;
 using Cinemachine;
 using Core.Dependency;
 using Core.Logging;
 using UnityEngine;
 
-namespace Feature.Camera
+namespace Feature.CameraSystem
 {
     public class CameraManager : MonoBehaviour
     {

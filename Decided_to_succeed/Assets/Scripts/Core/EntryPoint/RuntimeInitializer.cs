@@ -1,4 +1,3 @@
-// 네임스페이스: Core.EntryPoint
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;

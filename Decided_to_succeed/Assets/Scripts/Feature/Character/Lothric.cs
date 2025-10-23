@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Feature.NPC
+namespace Feature.Character
 {
     public class Lothric : MonoBehaviour
     {

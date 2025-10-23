@@ -1,8 +1,8 @@
 using Core.Dependency;
+using Feature.Character;
 using Feature.Context;
 using Feature.Cutscene;
 using Feature.Dialogue;
-using Feature.NPC;
 using Feature.Player;
 using UnityEngine;
 

@@ -1,5 +1,3 @@
-// PlayerController.cs
-
 using UnityEngine;
 using UnityEngine.InputSystem;
 

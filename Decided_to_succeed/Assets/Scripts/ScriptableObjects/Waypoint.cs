@@ -1,5 +1,3 @@
-// ScriptableObjects/Waypoint.cs
-
 using UnityEngine;
 
 namespace ScriptableObjects

@@ -1,15 +1,13 @@
-// Feature/Cutscene/CutsceneManager.cs
-
 using System;
 using System.Threading;
 using Core.Dependency;
 using Core.Logging;
 using Cysharp.Threading.Tasks;
-using Feature.Camera;
+using Feature.CameraSystem;
+using Feature.Character;
 using Feature.Common;
 using Feature.Context;
 using Feature.Dialogue;
-using Feature.NPC;
 using Feature.Player;
 using ScriptableObjects;
 using UnityEngine;

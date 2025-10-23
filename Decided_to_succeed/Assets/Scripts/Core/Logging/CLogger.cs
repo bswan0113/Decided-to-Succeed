@@ -1,6 +1,5 @@
 namespace Core.Logging
 {
-    // Assets/Scripts/Core/Logging/Logger.cs
     using UnityEngine;
 
     public static class CLogger

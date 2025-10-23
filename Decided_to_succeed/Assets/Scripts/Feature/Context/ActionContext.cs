@@ -1,6 +1,6 @@
-using Feature.Camera;
+using Feature.CameraSystem;
+using Feature.Character;
 using Feature.Dialogue;
-using Feature.NPC;
 using Feature.Player;
 
 namespace Feature.Context

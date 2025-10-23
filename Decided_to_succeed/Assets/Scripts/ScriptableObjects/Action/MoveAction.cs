@@ -44,7 +44,6 @@ namespace ScriptableObjects.Action
             }
 
             target.position = destination;
-            CLogger.Log($"[MoveAction] Moved to position {destination}");
         }
     }
 }

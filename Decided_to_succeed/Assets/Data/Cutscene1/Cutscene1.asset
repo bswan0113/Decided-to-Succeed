@@ -15,8 +15,8 @@ MonoBehaviour:
   actions:
   - rid: 8211121458670993414
   - rid: 8211121461579743232
-  - rid: 8211121461579743234
-  - rid: 8211121471647383556
+  - rid: 8211121471647383559
+  - rid: 8211121471647383560
   references:
     version: 2
     RefIds:
@@ -32,11 +32,11 @@ MonoBehaviour:
         _dialogueText: "\uAC00\uC2DC\uC8E0 \uC804\uD558. \uC81C\uAC00 \uBAA8\uC2DC\uACA0\uC2B5\uB2C8\uB2E4."
         _dialogueDuration: 2
         _bubbleOffset: {x: 1, y: 1, z: 0}
-    - rid: 8211121461579743234
-      type: {class: ToggleFollowAction, ns: , asm: Assembly-CSharp}
-      data:
-        _isFollowing: 1
-    - rid: 8211121471647383556
-      type: {class: SwitchCameraAction, ns: , asm: Assembly-CSharp}
+    - rid: 8211121471647383559
+      type: {class: SwitchCameraAction, ns: ScriptableObjects.Action, asm: Assembly-CSharp}
       data:
         _targetCameraId: vcam_follow_player
+    - rid: 8211121471647383560
+      type: {class: ToggleFollowAction, ns: ScriptableObjects.Action, asm: Assembly-CSharp}
+      data:
+        _isFollowing: 1

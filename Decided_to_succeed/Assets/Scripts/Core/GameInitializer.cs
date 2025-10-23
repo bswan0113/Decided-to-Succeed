@@ -33,6 +33,11 @@ namespace Core
                 var resourceManager = new ResourceManager();
                 ServiceLocator.Register(resourceManager);
 
+                var sceneTransitionView = GameObject.FindObjectOfType<SceneTransitionView>();
+                var sceneTrsanstionManager = new SceneTransitionManager(sceneTransitionView);
+                ServiceLocator.Register(sceneTrsanstionManager);
+
+
                 var cutsceneManager = GameObject.FindObjectOfType<CutsceneManager>();
                 if (cutsceneManager != null)
                 {

@@ -1,5 +1,7 @@
 using System;
 using System.Threading;
+using Core;
+using Core.Dependency;
 using Core.Logging;
 using Cysharp.Threading.Tasks;
 using Feature.Common;
@@ -54,7 +56,8 @@ namespace Feature.Title
                 if (_isSceneLoading) return;
 
                 _isSceneLoading = true;
-                SceneManager.LoadScene(nextSceneName);
+                var sceneTransitionManager = ServiceLocator.Get<SceneTransitionManager>();
+                await sceneTransitionManager.FadeAndLoadScene(nextSceneName);
             }
             catch (OperationCanceledException)
             {

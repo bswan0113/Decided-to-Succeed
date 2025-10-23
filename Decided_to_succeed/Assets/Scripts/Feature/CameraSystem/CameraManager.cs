@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using Core.Dependency;
 using Core.Logging;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace Feature.CameraSystem
@@ -31,7 +32,7 @@ namespace Feature.CameraSystem
                     entry.virtualCamera.Priority = 0;
                 }
             }
-            _cinemachineBrain = UnityEngine.Camera.main.GetComponent<CinemachineBrain>();
+            _cinemachineBrain = Camera.main.GetComponent<CinemachineBrain>();
             if (_cinemachineBrain == null)
             {
                 CLogger.LogError("[CameraManager] CinemachineBrain not found");
@@ -44,7 +45,6 @@ namespace Feature.CameraSystem
             if (!_cameras.ContainsKey(id))
             {
                 CLogger.LogWarning($"[CameraManager] '{id}' Not found!");
-                return;
             }
 
             foreach (var cam in _cameras.Values)

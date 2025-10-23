@@ -16,7 +16,11 @@ namespace Feature.Title
         private bool _isSceneLoading = false;
 
         private CancellationTokenSource _cancellationTokenSource;
-
+        private Scene _currentScene;
+        private void Awake()
+        {
+            _currentScene = SceneManager.GetActiveScene();
+        }
         void Start()
         {
             InitializeManager();

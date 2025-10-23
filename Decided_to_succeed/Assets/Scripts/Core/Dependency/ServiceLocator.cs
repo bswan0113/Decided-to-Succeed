@@ -37,7 +37,7 @@ namespace Core.Dependency
             }
             _sceneServices[type] = service;
         }
-        private static void OnSceneUnloaded(Scene current)
+        public static void OnSceneUnloaded(Scene current)
         {
             _sceneServices.Clear();
             CLogger.Log($"[ServiceLocator] Scene services cleared due to unload of scene: {current.name}");

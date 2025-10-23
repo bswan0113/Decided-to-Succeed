@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Cinemachine;
 using Core.Dependency;
@@ -20,7 +21,26 @@ namespace Feature.CameraSystem
         private Dictionary<string, CinemachineVirtualCamera> _cameras = new Dictionary<string, CinemachineVirtualCamera>();
 
         private CinemachineBrain _cinemachineBrain;
+        public CinemachineBrain Brain
+        {
+            get
+            {
+                if (_cinemachineBrain == null)
+                {
+                    CLogger.Log("[CameraManager] CinemachineBrain is null, trying to find it now...");
+                    if (Camera.main != null)
+                    {
+                        _cinemachineBrain = Camera.main.GetComponent<CinemachineBrain>();
+                    }
 
+                    if (_cinemachineBrain == null)
+                    {
+                        CLogger.LogError("[CameraManager] Could not find CinemachineBrain!");
+                    }
+                }
+                return _cinemachineBrain;
+            }
+        }
         void Awake()
         {
             ServiceLocator.RegisterScene(this);
@@ -32,11 +52,7 @@ namespace Feature.CameraSystem
                     entry.virtualCamera.Priority = 0;
                 }
             }
-            _cinemachineBrain = Camera.main.GetComponent<CinemachineBrain>();
-            if (_cinemachineBrain == null)
-            {
-                CLogger.LogError("[CameraManager] CinemachineBrain not found");
-            }
+
         }
 
         public void SwitchToCamera(string id)
@@ -59,5 +75,7 @@ namespace Feature.CameraSystem
         {
             return _cinemachineBrain;
         }
+
+
     }
 }

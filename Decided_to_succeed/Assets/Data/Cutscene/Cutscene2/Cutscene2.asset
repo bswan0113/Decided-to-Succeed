@@ -19,7 +19,8 @@ MonoBehaviour:
   - rid: 8211121471647383568
   - rid: 8211121471647383570
   - rid: 8211121471647383573
-  - rid: 8211121471647383574
+  - rid: 8211121471647383601
+  - rid: 8211121471647383602
   references:
     version: 2
     RefIds:
@@ -61,7 +62,13 @@ MonoBehaviour:
         _dialogueText: "\uAC00\uC2DC\uC8E0 \uACE7 \uB3C4\uCC29\uC785\uB2C8\uB2E4"
         _dialogueDuration: 3
         _bubbleOffset: {x: 1, y: 1, z: 0}
-    - rid: 8211121471647383574
+    - rid: 8211121471647383601
+      type: {class: ShowDialogueAction, ns: ScriptableObjects.Action, asm: Assembly-CSharp}
+      data:
+        _dialogueText: "\uC544\uB2C8 \uAD6C\uB369\uC774\uAC00!"
+        _dialogueDuration: 2
+        _bubbleOffset: {x: 1, y: 1, z: 0}
+    - rid: 8211121471647383602
       type: {class: SceneTransitionAction, ns: ScriptableObjects, asm: Assembly-CSharp}
       data:
-        sceneName: EndingScene
+        sceneName: MinigameScene

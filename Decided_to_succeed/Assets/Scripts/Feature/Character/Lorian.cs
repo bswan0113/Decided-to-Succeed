@@ -1,3 +1,4 @@
+using System.Threading;
 using Core.Dependency;
 using Feature.Cutscene;
 using Feature.Player;
@@ -20,7 +21,6 @@ namespace Feature.Character
 
         private async void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("Lorian triggered");
             if (_cutsceneManager.IsPlaying)
             {
                 return;
@@ -29,8 +29,9 @@ namespace Feature.Character
             player.SetControllable(false);
             if (player != null)
             {
+                CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
                 _hasBeenTriggered = true;
-               await _cutsceneManager.PlayCutscene(_lorianCutscene, player);
+               await _cutsceneManager.PlayCutscene(cancellationTokenSource.Token,_lorianCutscene, player);
 
             }
         }

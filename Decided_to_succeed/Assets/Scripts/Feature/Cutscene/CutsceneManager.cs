@@ -11,6 +11,7 @@ using Feature.Dialogue;
 using Feature.Player;
 using ScriptableObjects;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Feature.Cutscene
 {
@@ -50,9 +51,12 @@ namespace Feature.Cutscene
             CLogger.Log("[CutsceneManager] Shutdown");
         }
 
-        public async UniTask PlayCutscene(ScriptableObjects.Cutscene cutscene, PlayerController playerController, Lothric lothric = null)
+        public async UniTask PlayCutscene(CancellationToken token, ScriptableObjects.Cutscene cutscene, IPlayerControll playerController, Lothric lothric = null)
         {
-
+            while (_isPlaying)
+            {
+                await UniTask.Yield(PlayerLoopTiming.Update, token);
+            }
             if (_isPlaying)
             {
                 CLogger.LogWarning("[CutsceneManager] Cutscene is already playing!");
@@ -64,7 +68,7 @@ namespace Feature.Cutscene
                 CLogger.LogError("[CutsceneManager] Cutscene is null!");
                 return;
             }
-
+            var linkedCts = CancellationTokenSource.CreateLinkedTokenSource(token, _cancellationTokenSoruces.Token);
             _isPlaying = true;
             _cameraManager = ServiceLocator.GetSceneInstance<CameraManager>();
             var context = new ActionContext(playerController, _dialogueManager, _cameraManager, lothric);
@@ -76,7 +80,7 @@ namespace Feature.Cutscene
                 foreach (var action in cutscene.actions)
                 {
                     if (action == null) continue;
-                    await action.ExecuteAsync(context, _cancellationTokenSoruces.Token);
+                    await action.ExecuteAsync(context, linkedCts.Token);
                 }
 
                 CLogger.Log($"[CutsceneManager] Cutscene completed: {cutscene.name}");
@@ -91,7 +95,7 @@ namespace Feature.Cutscene
             }
         }
 
-        public void StopCutscene()
+        private void StopCutscene()
         {
             _cancellationTokenSoruces?.Cancel();
             _isPlaying = false;

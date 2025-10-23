@@ -16,7 +16,7 @@ namespace ScriptableObjects.Action
 
         public async UniTask ExecuteAsync(ActionContext context, CancellationToken token)
         {
-            await context.DialogueManager.ShowDialogue(_dialogueText,context.PlayerController.transform, _dialogueDuration,_bubbleOffset , token);
+            await context.DialogueManager.ShowDialogue(_dialogueText, context.PlayerController.transform, _dialogueDuration,_bubbleOffset , token);
         }
     }
 }

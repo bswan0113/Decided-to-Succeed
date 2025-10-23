@@ -12,19 +12,24 @@ using UnityEngine.SceneManagement;
 
 namespace Feature.PrologueScene
 {
-    public class EndingManager : MonoBehaviour, IAsyncManager
+    public class MinigameManager : MonoBehaviour, IAsyncManager
     {
         [SerializeField] private ScriptableObjects.Cutscene _introCutscene;
-        [SerializeField] private PlayerController _playerController;
-        [SerializeReference] private Lothric _lothric;
+        [SerializeField]private PlayerControllerMini _playerController;
         private CutsceneManager _cutsceneManager;
+        [SerializeField] private ScriptableObjects.Cutscene nextCutscene;
         private Scene _currentScene;
         private CancellationTokenSource _cancellationTokenSource;
+        private void OnEnable()
+        {
+            ClearPoint.OnPlayerReachedGoal += HandleClear;
+        }
+
         private void Awake()
         {
             _currentScene = SceneManager.GetActiveScene();
         }
-        void Start()
+        private void Start()
         {
             InitializeManager();
 
@@ -36,6 +41,7 @@ namespace Feature.PrologueScene
             _cancellationTokenSource?.Cancel();
             _cancellationTokenSource?.Dispose();
             _cancellationTokenSource = new CancellationTokenSource();
+            _playerController.SetControllable(false);
             _cutsceneManager = ServiceLocator.Get<CutsceneManager>();
             if (_cutsceneManager != null)
             {
@@ -43,7 +49,7 @@ namespace Feature.PrologueScene
                     _cancellationTokenSource.Token,
                     this.GetCancellationTokenOnDestroy());
 
-                _cutsceneManager.PlayCutscene(linkedCts.Token, _introCutscene, _playerController, _lothric).Forget();
+                _cutsceneManager.PlayCutscene(linkedCts.Token, _introCutscene, _playerController).Forget();
             }
         }
 
@@ -58,5 +64,10 @@ namespace Feature.PrologueScene
             ShutdownManager();
             ServiceLocator.OnSceneUnloaded(_currentScene);
         }
+        private void HandleClear()
+        {
+            _cutsceneManager.PlayCutscene(_cancellationTokenSource.Token, nextCutscene, _playerController).Forget();
+        }
+
     }
 }

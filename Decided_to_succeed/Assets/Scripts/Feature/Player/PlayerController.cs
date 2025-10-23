@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 namespace Feature.Player
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour, IPlayerControll
     {
         [SerializeField] private float moveSpeed = 3f;
         [SerializeField]private float interactionDistance = 1.5f;
@@ -49,9 +49,6 @@ namespace Feature.Player
             }
         }
 
-        /// <summary>
-        /// 주변 상호작용 오브젝트를 찾고 상호작용을 시도합니다.
-        /// </summary>
         private void TryInteract()
         {
             if (!_canInteract)

@@ -9,16 +9,16 @@ namespace Feature.Context
     public class ActionContext
     {
         private DialogueManager _dialogueManager;
-        private PlayerController _playerController;
+        private IPlayerControll _playerController;
         private Lothric _lothric;
         private CameraManager _cameraManager;
 
         public DialogueManager DialogueManager => _dialogueManager;
-        public PlayerController PlayerController => _playerController;
+        public IPlayerControll PlayerController => _playerController;
         public Lothric Lothric => _lothric;
         public CameraManager CameraManager => _cameraManager;
 
-        public ActionContext(PlayerController playerController, DialogueManager dialogueManager, CameraManager cameraManager, Lothric lothric = null)
+        public ActionContext(IPlayerControll playerController, DialogueManager dialogueManager, CameraManager cameraManager, Lothric lothric = null)
         {
             _cameraManager = cameraManager;
             _playerController = playerController;
@@ -26,7 +26,7 @@ namespace Feature.Context
             _lothric = lothric;
         }
 
-        public ActionContext(PlayerController playerController, Lothric lothric = null)
+        public ActionContext(IPlayerControll playerController, Lothric lothric = null)
         {
             _playerController = playerController;
         }

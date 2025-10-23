@@ -1,7 +1,8 @@
 
+using Cysharp.Threading.Tasks;
 using Feature.Context;
 
 public interface IInteractable
 {
-    void Interact(ActionContext context);
+    UniTask Interact(ActionContext context);
 }

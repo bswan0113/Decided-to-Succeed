@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0b0e1623a947b484f471f9cea856d7, type: 3}
+  m_Name: Cutscene4
+  m_EditorClassIdentifier: 
+  actions:
+  - rid: 8211121471647383576
+  - rid: 8211121471647383577
+  - rid: 8211121471647383578
+  - rid: 8211121471647383579
+  - rid: 8211121471647383580
+  - rid: 8211121471647383581
+  - rid: 8211121471647383582
+  - rid: 8211121471647383583
+  - rid: 8211121471647383584
+  - rid: 8211121471647383587
+  - rid: 8211121471647383588
+  - rid: 8211121471647383589
+  - rid: 8211121471647383592
+  - rid: 8211121471647383599
+  - rid: 8211121471647383600
+  references:
+    version: 2
+    RefIds:
+    - rid: 8211121471647383576
+      type: {class: ShowDialogueAction, ns: ScriptableObjects.Action, asm: Assembly-CSharp}
+      data:
+        _dialogueText: "\uB85C... \uB85C\uB9AC\uC548 \uC655\uC790\uB2D8!"
+        _dialogueDuration: 2
+        _bubbleOffset: {x: 1, y: 1, z: 0}
+    - rid: 8211121471647383577
+      type: {class: ShowDialogueAction, ns: ScriptableObjects.Action, asm: Assembly-CSharp}
+      data:
+        _dialogueText: "\uC124\uB9C8 \uC9C0\uAE08 \uACC4\uC2B9\uC744 \uB9C9\uC73C\uB824\uD558\uC2DC\uB294\uAC81\uB2C8\uAE4C"
+        _dialogueDuration: 2
+        _bubbleOffset: {x: 1, y: 1, z: 0}
+    - rid: 8211121471647383578
+      type: {class: ShowDialogueAction, ns: ScriptableObjects.Action, asm: Assembly-CSharp}
+      data:
+        _dialogueText: "\uADF8\uB7F4\uC21C \uC5C6\uC2B5\uB2C8\uB2E4. "
+        _dialogueDuration: 2
+        _bubbleOffset: {x: 1, y: 1, z: 0}
+    - rid: 8211121471647383579
+      type: {class: ShowDialogueAction, ns: ScriptableObjects.Action, asm: Assembly-CSharp}
+      data:
+        _dialogueText: "\uBD88\uC758 \uACC4\uC2B9\uC744 \uC774\uC744 \uC0AC\uB78C\uC740
+          \uB2F9\uC2E0\uC774 \uC544\uB2D9\uB2C8\uB2E4!!!!!!!!!"
+        _dialogueDuration: 2
+        _bubbleOffset: {x: 1, y: 1, z: 0}
+    - rid: 8211121471647383580
+      type: {class: ShowDialogueAction, ns: ScriptableObjects.Action, asm: Assembly-CSharp}
+      data:
+        _dialogueText: "\uCFE0\uC5B4\uC5B4\uC5B4\uC5B4\uC5B4\uC5B4\uC5B4!!!"
+        _dialogueDuration: 2
+        _bubbleOffset: {x: 3, y: 3, z: 0}
+    - rid: 8211121471647383581
+      type: {class: ShowDialogueAction, ns: ScriptableObjects.Action, asm: Assembly-CSharp}
+      data:
+        _dialogueText: "\uCEE4....\uCEE4\uD5C9..."
+        _dialogueDuration: 2
+        _bubbleOffset: {x: 1, y: 1, z: 0}
+    - rid: 8211121471647383582
+      type: {class: ShowDialogueAction, ns: ScriptableObjects.Action, asm: Assembly-CSharp}
+      data:
+        _dialogueText: "\uB85C\uC2A4\uB9AD.... \uC655\uC790\uB2D8...."
+        _dialogueDuration: 2
+        _bubbleOffset: {x: 1, y: 1, z: 0}
+    - rid: 8211121471647383583
+      type: {class: ShowDialogueAction, ns: ScriptableObjects.Action, asm: Assembly-CSharp}
+      data:
+        _dialogueText: "\uBD80\uB514... \uACC4\uC2B9\uC744.... \uBD88\uC758.... \uC2DC\uB300\uB97C..."
+        _dialogueDuration: 4
+        _bubbleOffset: {x: 1, y: 1, z: 0}
+    - rid: 8211121471647383584
+      type: {class: HidingPlayerAction, ns: ScriptableObjects.Action, asm: Assembly-CSharp}
+      data: 
+    - rid: 8211121471647383587
+      type: {class: ShowDialogueAction, ns: ScriptableObjects.Action, asm: Assembly-CSharp}
+      data:
+        _dialogueText: "\uD615\uB2D8... \uC804 \uAC00\uC57C\uB9CC\uD569\uB2C8\uB2E4."
+        _dialogueDuration: 4
+        _bubbleOffset: {x: 0, y: 0, z: 0}
+    - rid: 8211121471647383588
+      type: {class: ShowDialogueAction, ns: ScriptableObjects.Action, asm: Assembly-CSharp}
+      data:
+        _dialogueText: "\uBD88\uC758 \uC2DC\uB300\uC758 \uC885\uB9D0\uC744 \uBCFC
+          \uC21C \uC5C6\uC2B5\uB2C8\uB2E4."
+        _dialogueDuration: 4
+        _bubbleOffset: {x: 0, y: 0, z: 0}
+    - rid: 8211121471647383589
+      type: {class: ChangeSpriteAction, ns: ScriptableObjects.Action, asm: Assembly-CSharp}
+      data:
+        _targetObjectName: Lorian
+        _newSprite: {fileID: 21300000, guid: 6fd2cedbaefe1384eafd21d23ac9ff1c, type: 3}
+    - rid: 8211121471647383592
+      type: {class: ChangeSpriteAction, ns: ScriptableObjects.Action, asm: Assembly-CSharp}
+      data:
+        _targetObjectName: Lorian
+        _newSprite: {fileID: 0}
+    - rid: 8211121471647383599
+      type: {class: PlayVideoAction, ns: ScriptableObjects.Action, asm: Assembly-CSharp}
+      data:
+        _videoPlayerObjectName: ViedoPlayer
+    - rid: 8211121471647383600
+      type: {class: SceneTransitionAction, ns: ScriptableObjects, asm: Assembly-CSharp}
+      data:
+        sceneName: TitleScene

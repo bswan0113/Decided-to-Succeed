@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0b0e1623a947b484f471f9cea856d7, type: 3}
+  m_Name: Cutscene2
+  m_EditorClassIdentifier: 
+  actions:
+  - rid: 8211121471647383565
+  - rid: 8211121471647383566
+  - rid: 8211121471647383567
+  - rid: 8211121471647383568
+  - rid: 8211121471647383570
+  - rid: 8211121471647383573
+  - rid: 8211121471647383574
+  references:
+    version: 2
+    RefIds:
+    - rid: 8211121471647383565
+      type: {class: MoveAction, ns: ScriptableObjects.Action, asm: Assembly-CSharp}
+      data:
+        _waypointData: {fileID: 11400000, guid: cf8e66c600b19a741aa77f2a954123ac, type: 2}
+        _duration: 5
+        _offset: {x: 0, y: 0, z: 0}
+    - rid: 8211121471647383566
+      type: {class: ShowDialogueAction, ns: ScriptableObjects.Action, asm: Assembly-CSharp}
+      data:
+        _dialogueText: "\uCC98\uC74C\uC5D4 \uB180\uB790\uC2B5\uB2C8\uB2E4."
+        _dialogueDuration: 3
+        _bubbleOffset: {x: 1, y: 1, z: 0}
+    - rid: 8211121471647383567
+      type: {class: ShowDialogueAction, ns: ScriptableObjects.Action, asm: Assembly-CSharp}
+      data:
+        _dialogueText: "\uC804\uD558\uAED8\uC11C \uACC4\uC2B9\uC744 \uD3EC\uAE30\uD558\uC2DC\uB2E4\uB2C8\uC694..."
+        _dialogueDuration: 3
+        _bubbleOffset: {x: 1, y: 1, z: 0}
+    - rid: 8211121471647383568
+      type: {class: ShowDialogueAction, ns: ScriptableObjects.Action, asm: Assembly-CSharp}
+      data:
+        _dialogueText: "\uADF8\uB798\uB3C4 \uC0DD\uAC01\uC744 \uBC14\uAFB8\uC154\uC11C
+          \uC815\uB9D0 \uB2E4\uD589\uC785\uB2C8\uB2E4."
+        _dialogueDuration: 3
+        _bubbleOffset: {x: 1, y: 1, z: 0}
+    - rid: 8211121471647383570
+      type: {class: ShowDialogueAction, ns: ScriptableObjects.Action, asm: Assembly-CSharp}
+      data:
+        _dialogueText: "\uC804\uD558\uC758 \uC740\uCD1D\uC73C\uB85C \uBD88\uC758
+          \uC2DC\uB300\uB294 \uC601\uC6D0\uD788 \uBE5B\uB0A0\uAC83\uC785\uB2C8\uB2E4."
+        _dialogueDuration: 3
+        _bubbleOffset: {x: 1, y: 1, z: 0}
+    - rid: 8211121471647383573
+      type: {class: ShowDialogueAction, ns: ScriptableObjects.Action, asm: Assembly-CSharp}
+      data:
+        _dialogueText: "\uAC00\uC2DC\uC8E0 \uACE7 \uB3C4\uCC29\uC785\uB2C8\uB2E4"
+        _dialogueDuration: 3
+        _bubbleOffset: {x: 1, y: 1, z: 0}
+    - rid: 8211121471647383574
+      type: {class: SceneTransitionAction, ns: ScriptableObjects, asm: Assembly-CSharp}
+      data:
+        sceneName: EndingScene

@@ -1,3 +1,4 @@
+using System;
 using Feature.CameraSystem;
 using Feature.Character;
 using Feature.Dialogue;
@@ -23,6 +24,11 @@ namespace Feature.Context
             _playerController = playerController;
             _dialogueManager = dialogueManager;
             _lothric = lothric;
+        }
+
+        public ActionContext(PlayerController playerController, Lothric lothric = null)
+        {
+            _playerController = playerController;
         }
     }
 }

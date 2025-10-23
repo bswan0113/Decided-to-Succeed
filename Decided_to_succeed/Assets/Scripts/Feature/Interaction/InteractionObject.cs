@@ -11,14 +11,14 @@ namespace Feature.Interaction
         [SerializeReference] private List<IAction> _actions;
         private bool _isInteracting = false;
 
-        public void Interact(ActionContext context)
+        public async UniTask Interact(ActionContext context)
         {
             if (_isInteracting) return;
             _isInteracting = true;
             foreach (var action in _actions)
             {
                 var token = this.GetCancellationTokenOnDestroy();
-                action.ExecuteAsync(context,token);
+                await action.ExecuteAsync(context,token);
             }
             _isInteracting = false;
         }

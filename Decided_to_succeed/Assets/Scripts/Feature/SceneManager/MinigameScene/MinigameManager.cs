@@ -37,7 +37,6 @@ namespace Feature.PrologueScene
         }
         public void InitializeManager()
         {
-            UniTask.Yield(PlayerLoopTiming.Update);
             _cancellationTokenSource?.Cancel();
             _cancellationTokenSource?.Dispose();
             _cancellationTokenSource = new CancellationTokenSource();
